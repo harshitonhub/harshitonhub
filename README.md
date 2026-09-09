@@ -24,8 +24,6 @@ Equine health-tech startup combining thermal imaging with ride telemetry for ear
 
 **[aws-healthcare-insurance-analytics](https://github.com/harshitonhub/aws-healthcare-insurance-analytics)** — Cloud-based healthcare data warehouse and analytics using AWS S3, Glue, Athena, and Streamlit
 
-**[portfolio_harshit](https://github.com/harshitonhub/portfolio_harshit)** — Personal portfolio site
-
 ## Skills
 
 **Languages:** Python, Java, JavaScript, SQL
@@ -33,6 +31,3 @@ Equine health-tech startup combining thermal imaging with ride telemetry for ear
 **On-device ML:** Core ML, TFLite, ONNX, int8 quantization
 **Cloud & Infra:** AWS (S3, Glue, Athena), MongoDB Atlas, Cloudflare R2, Streamlit
 
-## Currently
-
-Building a scoped AI fairness and governance audit (benchmarked against the EU AI Act and NYC Local Law 144, using Aequitas and Fairlearn) as a portfolio project. Open to graduate roles in AI/ML engineering, technology risk, and data science.
