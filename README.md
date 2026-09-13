@@ -1,59 +1,33 @@
-# Hi, I'm Harshit Jain 👋
+# Harshit Jain
 
-**MSc Computer Science (Agentic AI/ML) · University College Dublin, graduating 2026 · Dublin, Ireland**
+MSc Computer Science (Agentic AI/ML), University College Dublin — Dublin, Ireland
 
-![Open to Work](https://img.shields.io/badge/Open%20to-Graduate%20AI%2FML%20%26%20Tech%20Risk%20roles-2ea44f?style=flat-square)
-[![GitHub followers](https://img.shields.io/github/followers/harshitonhub?style=flat-square&label=Follow&color=0891b2)](https://github.com/harshitonhub)
+I like problems where the constraint is the actual engineering challenge — this year that meant squeezing a computer-vision model onto a phone instead of a GPU, and figuring out what a real signal looks like when the ground truth itself is uncertain.
 
-## About
+## MirrorPoint — thermal injury detection for horses
 
-AI/ML engineer with hands-on experience across the full pipeline: data engineering, model training, and on-device deployment. Most recently built computer-vision and time-series systems for early injury detection in a health-tech product. Currently applying that background to AI/ML engineering, technology risk, and AI governance roles.
+At Cavalloré, an equine health-tech startup, I built the ML side of a system that uses thermal imaging and ride telemetry to catch injuries in horses before they become visible lameness. Vets already use thermography for this, but manually, on single hot spots — the goal was to make it systematic.
 
-## Experience
+The core model, MirrorPoint, is a U-Net with an EfficientNet-B4 encoder that segments a horse's legs out of a thermal frame. It's evaluated against GrabCut pseudo-labels, not vet-confirmed ground truth, and I say that up front every time — it's a real limitation, not a footnote.
 
-**Cavalloré** — AI/ML Engineering Intern (Dublin)
-Equine health-tech startup combining thermal imaging with ride telemetry for early injury detection in horses. Owned the ML pipeline, thermal camera hardware procurement, and data infrastructure.
-- Built a U-Net (EfficientNet-B4 encoder) for leg segmentation and a longitudinal thermal-asymmetry pipeline that tracks left-right consistency across proximal, mid, and distal points rather than single-point thresholds
-- Converted models for on-device inference (Core ML, TFLite, ONNX with int8 quantization) instead of GPU serving
-- Improved signal-to-noise ratio from 1.8 to 4.0
+The more interesting piece is what sits on top of segmentation: a longitudinal pipeline that OCRs raw FLIR screenshots and tracks left-right temperature asymmetry as the actual unit of signal, checking directional consistency across proximal, mid, and distal points rather than trusting any single-point threshold. A 1–3°C difference becomes a flag for a vet to look at, not a diagnosis — the model's job is to reduce noise, not replace judgment.
 
-**Celebal Technologies** — Data Science & Data Engineering Intern (Jaipur)
-- Reduced ETL integration time by 30%
-- Improved forecasting accuracy by 15%
+Inference had to run on-device, so this wasn't GPU-serving — I converted everything to Core ML, TFLite, and ONNX with int8 quantization, and that constraint shaped model choices as much as accuracy did. Raw thermal files live in Cloudflare R2, structured metadata in MongoDB Atlas, and vets get human-readable exports via Google Drive. Over the internship, this pipeline took the signal-to-noise ratio from 1.8 to 4.0.
 
-## Featured Projects
+I also handled thermal camera procurement, which turned out to be its own lesson in how much hardware choice constrains what your model can even see.
 
-**[grid-oracle-f1-agent](https://github.com/harshitonhub/grid-oracle-f1-agent)** — LLM-based Formula 1 pit wall race engineer agent (OpenAI Responses API): live strategy calls, RAG over knowledge files, real-time OpenF1 data, and Monte Carlo simulations
+## Also building
 
-**[aws-healthcare-insurance-analytics](https://github.com/harshitonhub/aws-healthcare-insurance-analytics)** — Cloud-based healthcare data warehouse and analytics using AWS S3, Glue, Athena, and Streamlit
+**[grid-oracle-f1-agent](https://github.com/harshitonhub/grid-oracle-f1-agent)** — an F1 pit-wall strategy agent on the OpenAI Responses API. It pulls real-time telemetry from OpenF1, retrieves from a knowledge base of race rules and history, and runs Monte Carlo simulations to back live strategy calls — closer to a decision-support tool than a chatbot.
 
-## Skills
+**[aws-healthcare-insurance-analytics](https://github.com/harshitonhub/aws-healthcare-insurance-analytics)** — a small healthcare data warehouse on S3, Glue, and Athena, with a Streamlit front end, mostly to get hands dirty with AWS's analytics stack end to end.
 
-**Languages**
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Java](https://img.shields.io/badge/Java-007396?style=flat-square&logo=openjdk&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
+Before this, two internships at Celebal Technologies in data science and data engineering — cut ETL integration time by 30% and improved a forecasting model's accuracy by 15%.
 
-**ML / Data**
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
-![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
-![Aequitas](https://img.shields.io/badge/Aequitas-fairness_audit-6b21a8?style=flat-square)
-![Fairlearn](https://img.shields.io/badge/Fairlearn-fairness_audit-6b21a8?style=flat-square)
+## Currently exploring
 
-**On-device ML**
-![Core ML](https://img.shields.io/badge/Core%20ML-000000?style=flat-square&logo=apple&logoColor=white)
-![TFLite](https://img.shields.io/badge/TFLite-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
-![ONNX](https://img.shields.io/badge/ONNX-005CED?style=flat-square&logo=onnx&logoColor=white)
+A scoped AI fairness and governance audit of a candidate-scoring tool, benchmarked against the EU AI Act and NYC Local Law 144 using Aequitas and Fairlearn. It's early, but it's the direction I want to keep pulling on — the gap between a model that works and a model whose decisions you can actually defend.
 
-**Cloud & Infra**
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB%20Atlas-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![Cloudflare R2](https://img.shields.io/badge/Cloudflare%20R2-F38020?style=flat-square&logo=cloudflare&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+---
 
-## GitHub Stats
-
-<p align="left">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=harshitonhub&theme=dark&hide_border=true&background=00000000" alt="Harshit's GitHub streak stats" />
-</p>
+Finishing my MSc in September 2026. Python and PyTorch day to day, with the on-device (Core ML / TFLite / ONNX) and cloud (AWS, MongoDB Atlas, Cloudflare R2) stack from MirrorPoint. Always happy to talk through any of the above.
