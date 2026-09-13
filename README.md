@@ -55,6 +55,5 @@ Equine health-tech startup combining thermal imaging with ride telemetry for ear
 ## GitHub Stats
 
 <p align="left">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=harshitonhub&show_icons=true&theme=dark&hide_border=true&hide_title=true" alt="Harshit's GitHub stats" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=harshitonhub&layout=compact&theme=dark&hide_border=true&hide=jupyter%20notebook" alt="Top languages" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=harshitonhub&theme=dark&hide_border=true&background=00000000" alt="Harshit's GitHub streak stats" />
 </p>
